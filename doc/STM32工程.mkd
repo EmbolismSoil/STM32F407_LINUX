@@ -1,0 +1,110 @@
+##在LINUX下开始一个STM32工程
+>**写在前面的话**：作为一名喜欢折腾的linux的蛇精病呢，巴不得连图片都在黑框里打开，因为命令行总给人酷酷的感觉阿。哈，不过话说回来，难道折腾来折腾去只是为了看起来酷酷的？其实这只是我的个人喜好，因为我总觉得再IDE里面做开发有种蹩脚的感觉，比如说新建一个源文件，点击好几次鼠标，然后添加到工程。感觉上总是不如一个make来的畅快,而且个人觉得直接在源码树里面完成整个工程的管理会比较规整。不过IDE调试起来会比较直观方便，总而言之这都是个人喜好问题咯。我个人的口味呢就是：make+gcc+vim+git。好了，胡话就先说这么多，开始干正事。
+***
+###一、安装工具
+* **安装交叉编译工具链arm-none-eabi**
+* **安装make**
+* **安装vim**
+* **安装git**  
+###二、 如何工作
+####2.1 需要作的工作
+* [下载stm32固件库](http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32f4_dsp_stdperiph_lib.zip)
+* 编写连接器脚本
+* 编写makefile
+####2.2 工作分析
++ **2.2.1 makefile分析**  
+当我们开发STM32时，会有两部分源码，一部分是由意法半导体提供的固件库，一部分是我们自己编写的用户层代码。  在开发过程中，除非我们进行版本更新否则固件库是不会改变的。而用户代码是会在开发过程当中增删减的。这样，我们可以首先把不变的固件库编译成静态库，之后的每次编译过程中只需要编译用户代码然后再把已经编译好的固件静态库链接进来就可以了，这样做可以大大节省编译时间，因为固件库结构本身是比较庞大和复杂的。
++ **2.2.2 链接器脚本分析**  
+在总控makefile编译完用户代码之后，就会将静态固件库链接进来，形成最终的镜像文件。这个链接过程由是链接器脚本控制完成的。  
+连接器脚本主要是用于安排不同代码段在内存中的位置的，程序中的段属性可以大致分为只读的代码段(.textd段)和可读可写的数据段(.data段和.bss段)。而在嵌入式微控制器中，内存也主要分为两种：只读的FLASH和可读可写的RAM。我们可以把代码段放到FLASH中，而数据段放到RAM中。当然，如果RAM空间足够大的话，我们可以把整个镜像都放到RAM里面去。这里需要解释一下，一般来说我们烧录程序是烧录到FLASH内的，而不是RAM内，因为RAM是掉电易失的，而FLASH为非易失储存器。如果代码烧录到RAM内，在关机之后代码就没了。所以我们需要把整个镜像烧录到FLASH内，而后在BOOT阶段再拷贝那些原本被链接器安排到RAM的代码段拷贝到RAM里面去。总而言之，链接器脚本主要完成的工作是：安排好不同.o文件不同段所在的位置，并且解决符号引用问题。  
+*(注：关于链接的详细介绍，可以看[我的另外一篇博文](http://www.hainter.com/clinker))*
++ **2.3 总结**  
+我们的工程应该需要编写：  
+`(1)负责固件库编译的makefile`  
+`(2)负责用户代码编译和链接生成最终镜像的总控makefile`  
+`(3)负责链接过程中安排各个程序段的链接器脚本`
+###三、开始工作
++ **3.1 创建文工程件夹**  
+文件夹结构如图所示
+<pre>
+|---project
+     |---Debug
+     |---doc
+     |---include
+     |---ldscripts
+     |---lib
+     |---OS
+     |---src
+     |---lib</pre><pre><code>创建好了之后下载固件库到lib文件夹中去并且解压备用
+    cd lib
+    wget www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32f4_dsp_stdperiph_lib.zip
+    unzip stm32f4_dsp_stdperiph_lib.zip -d stm32f4_dsp_stdperiph_lib
+</pre>
+
++ **3.2 编写连接器脚本**  
+首先创建一个.lds文件并且编辑之
+<pre><code>    cd ldscripts/ && touch STM32F407.lds && vim STM32F407.lds</pre>
+定义机器架构为ARM，入口符号为Reset_Handler
+<pre><code>    1 OUTPUT_ARCH(arm)
+    2 ENTRY(Reset_Handler)
+</pre>
+定义RAM区和FLASH区的起始地址与长度
+<pre><code>    3 MEMORY
+    4 {
+    5         RAM : ORIGIN = 0x20000000, LENGTH = 112K
+    6         FLASH : ORIGIN = 0x80000000, LENGTH = 1M
+    7 }
+    8 </pre>
+定义各个段的位置。
+为了加快程序运行速度，将中断向量表所在的isr段放到flash内，其他所有段都放到RAM内。并且安排整个镜像的加载地址是连续摆放的，这样可以避免镜像中出现空洞
+<pre><code>    9 SECTIONS
+    10 {
+    11         . = ALIGN(4);
+    12          
+    13         .isr_vectors :
+    14         {
+    15                 KEEP(*(.isr_vectors))
+    16                 . = ALIGN(4);
+    17                 _eisr = .;
+    18         } > FLASH
+    19                 
+    20         .text : AT (_eisr) 
+    21         { 
+    22                 _stext = .;
+    23                \*(.text)
+    24                 . = ALIGN(4);
+    25                 _etext = .;
+    26         } > RAM
+    27                 
+    28         .data : AT (__etext)
+    29         { 
+    30                 _sdata = .;
+    31                 \*(.data\*)
+    32                 . = ALIGN(4);
+    33                 _edata = .;
+    34         } > RAM 
+    35  
+    36         .bss : 
+    37         {
+    38                 . = ALIGN(4);
+    39                 _sbss = .;
+    40                 \*(.bss)
+    41                 . = ALIGN(4);
+    42                 _ebss = .;
+    43         } > RAM
+    44  
+    45         .stack :
+    46         {
+    47                 . = ALIGN(4);
+    48                 _sstack = .;
+    49                 \*(.stack);
+    50                 . = ALIGN(4);
+    51                 _estack = .;
+    52         } > RAM
+    53 }
+</pre>
++ **3.3 编写总控makefile**  
+在工程目录下
+
+
+

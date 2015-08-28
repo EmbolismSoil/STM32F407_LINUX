@@ -1,0 +1,67 @@
+Q=
+TypeOfMCU=STM32F40_41xxx
+#TypeOfMCU = STM32F446xx
+
+SRCTREE    :=    $(shell pwd)
+TOPDIR     :=    $(SRCTREE)
+LIBDIR     :=    /home/lee/stm32/STM32F407/lib#编译好的库文件放在这个目录下
+
+STMLIB := /home/lee/stm32/stm32f4_dsp_stdperiph_lib/STM32F4xx_DSP_StdPeriph_Lib/Libraries
+
+CROSS_COMPILE=arm-none-eabi
+CC = $(CROSS_COMPILE)-gcc
+LD = $(CROSS_COMPLIE)-ld
+AR = $(CROSS_COMPLIE)-ar
+
+OBJCFLAGS=--gap-fill=0xff
+
+#这部分跟库函数的目录结构有关
+INCLUDE = -I $(TOPDIR)/inc
+INCLUDE += -I $(STMLIB)/CMSIS/Include/
+INCLUDE += -I $(STMLIB)/CMSIS/Device/ST/STM32F4xx/Include/
+INCLUDE += -I $(STMLIB)/STM32F4xx_StdPeriph_Driver/inc/
+
+CFLAGS= $(INCLUDE) -g -O1 -Wall  -mcpu=cortex-m4 -mthumb
+LIBCFLAGS=$(CFLAGS)
+
+LIBS += libstm32.a
+
+#gcc -D 定义宏
+LIBCFLAGS += -D$(TypeOfMCU)
+LIBCFLAGS += -DVECT_TAB_FLASH
+LIBCFLAGS += -D"assert_param(expr)=((void)0)"
+LIBCFLAGS += -DUSE_STDPERIPH_DRIVER
+LIBCFLAGS += -c
+
+export SRCTREE
+export TOPDIR
+export LIBDIR
+export STMLIB
+export CROSS_COMPILE
+export CC
+export LD
+export AR
+export OBJCFALGS
+export INCLUDE
+export CFLAGS
+export LIBFLAGS
+
+all:$(LIBS)
+
+$(LIBS):
+	$(Q) echo -n "Building $@ ...."
+	$(Q) cd $(STMLIB)/CMSIS/Device/ST/STM32F4xx/Source/Templates && \
+		$(CC) $(LIBCFLAGS) system_stm32f4xx.c
+		
+	$(Q) cd $(STMLIB)/STM32F4xx_StdPeriph_Driver/src && \
+		$(CC) $(LIBCFLAGS) *.c
+
+	$(Q) $(AR) cr $(LIBDIR)/$@ \
+		$(STMLIB)/CMSIS/Device/ST/STM32F4xx/Source/Templates/*.o \
+		$(STMLIB)/STM32F4xx_StdPeriph_Driver/src/*.o
+	$(Q) echo "done"
+
+.PHONY:
+	clean
+clean:
+	-rm $(shell find $(STMLIB) -name "*.o")	
