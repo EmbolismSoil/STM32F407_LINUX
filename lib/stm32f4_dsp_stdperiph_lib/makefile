@@ -5,7 +5,7 @@ LIBOBJ = $(LIBSRC:%.c=%.o)
 LIBDEP = $(LIBSRC:%.c=%.d)
 
 libstm32.a: $(LIBDEP) $(LIBOBJ)
-	$(Q) $(AR) $(ARFLAGS) $(LIBDIR)/$@
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@ $(LIBOBJ)
 
 sinclude $(TOPDIR)/rules.mk
 sinclude $(LIBDEP)

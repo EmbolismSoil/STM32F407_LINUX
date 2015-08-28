@@ -3,6 +3,8 @@ dep = $(obj:%.o=%.d)
 
 .PHONY:all
 all: $(dep) $(obj)
+	echo $(dep)
+	echo $(obj)
 
 sinclude $(TOPDIR)/rules.mk
 sinclude $(dep)

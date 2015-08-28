@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include "stm32f4xx.h"
 
-void main(void)
+int main(void)
 {
-   printf("hello world\n");
+    int a = 0;   a++;
+    return 0;
 }

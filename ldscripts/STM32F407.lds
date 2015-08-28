@@ -20,15 +20,15 @@ SECTIONS
 	.text : AT (_eisr) 
 	{
 		_stext = .;
-		*(.text)
+		*(.text*)
 		. = ALIGN(4);
 		_etext = .;
 	} > RAM
 	
-	.data : AT (__etext)
+	.data : AT (_eisr + SIZEOF(.text))
 	{
 		_sdata = .;
-		*(.data*)
+		*(.*data*)
 		. = ALIGN(4);
 		_edata = .;
 	} > RAM
