@@ -43,7 +43,7 @@ OBJS := $(ARCHDIR)/startup.o
 
 export
 
-.PHONY:all	
+.PHONY:all $(PROJNAME).bin $(PROJNAME).elf $(LIBS) $(OBJS)	
 all: $(PROJNAME).bin
 
 $(PROJNAME).bin : $(PROJNAME).elf
@@ -56,10 +56,11 @@ $(PROJNAME).elf : $(OBJS) $(LIBS)
 $(OBJS) $(LIBS):
 	$(Q) make -C $(dir $@)
 
-.PHONY:clean	
+.PHONY:clean cleanAll	
+cleanAll : clean
+	$(Q) -rm $(shell find $(TOPDIR) -name *.d*)
 clean:
 	 $(Q) -rm $(shell find $(TOPDIR) -name *.o)	
 	 $(Q) -rm $(shell find $(TIODIR) -name *.a)
-	 $(Q) -rm $(shell find $(TOPDIR) -name *.d)
 	 $(Q) -rm $(PROJNAME).elf
 	 $(Q) -rm $(PROJNAME).bin
