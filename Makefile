@@ -34,7 +34,7 @@ CFLAGS += -DUSE_STDPERIPH_DRIVER
 
 LIBS = libstm32.a
 LIBS += libapp.a
-OBJS = $(ARCHDIR)/startup.o
+OBJS := $(ARCHDIR)/startup.o
 
 export
 
@@ -47,4 +47,5 @@ $(LIBS):
 	make -C $(DRIVER_LIB_SRC)
 	make -C $(USERSRC)
 $(OBJS):
+	echo OBJS = $(OBJS)
 	make -C $(ARCHDIR)
