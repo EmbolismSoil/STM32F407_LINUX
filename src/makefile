@@ -3,7 +3,11 @@ SRC = $(wildcard $(USERSRC)/*.c)
 OBJ = $(SRC:%.c=%.o)
 DEP = $(SRC:%.c=%.d)
 
-all : $(DEP) $(OBJ)
+
+
+.PHONY:libapp.a
+libapp.a : $(DEP) $(OBJ)
+	$(AR) $(ARFLAGS) $(USERSRC)/$@ $(OBJ)
 
 sinclude $(TOPDIR)/rules.mk
-sinclude $(LIBDEP)
+sinclude $(DEP)

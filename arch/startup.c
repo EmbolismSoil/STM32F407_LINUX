@@ -3,7 +3,9 @@ typedef void( *const intfunc )( void );
 #define WEAK __attribute__ ((weak))
 /* provided by the linker script */
 //extern unsigned long _etext; /* start address of the static initialization data */
-extern unsigned long _sidata; /* start address of the static initialization data */
+//extern unsigned long _sidata; /* start address of the static initialization data */
+extern unsigned long _eisr;
+extern unsigned long _stext;
 extern unsigned long _sdata; /* start address of the data section */
 extern unsigned long _edata; /* end address of the data section */
 extern unsigned long _sbss; /* start address of the bss section */
@@ -229,8 +231,8 @@ void (* const g_pfnVectors[])(void) = {
 void __Init_Data(void) {
 	unsigned long *src, *dst;
 	/* copy the data segment into ram */
-	src = &_sidata;
-	dst = &_sdata;
+	src = &_eisr;
+	dst = &_stext;
 	if (src != dst)
 		while(dst < &_edata)
 			*(dst++) = *(src++);
@@ -241,8 +243,6 @@ void __Init_Data(void) {
 }
 void Reset_Handler(void) {
 	__Init_Data(); /* Initialize memory, data and bss */
-	extern u32 _isr_vectors_offs; /* the offset to the vector table in ram */
-	SCB->VTOR = 0x08000000 | ((u32)&_isr_vectors_offs & (u32)0x1FFFFF80); /* set interrupt vector table address */
 	SystemInit(); /* configure the clock */
 	main(); /* start execution of the program */
 	while(1) {}
@@ -319,5 +319,5 @@ void Reset_Handler(void) {
 
 void Default_Handler(void)
 {
-while (1) {}
+    while (1);
 }

@@ -2,8 +2,8 @@ OUTPUT_ARCH(arm)
 ENTRY(Reset_Handler)
 MEMORY
 {
-	RAM : ORIGIN = 0x20000000, LENGTH = 112K
-	FLASH : ORIGIN = 0x80000000, LENGTH = 1M 
+	RAM : ORIGIN =   0x20000000, LENGTH = 112K
+	FLASH : ORIGIN = 0x08000000, LENGTH = 1M 
 }
 
 SECTIONS
@@ -20,15 +20,15 @@ SECTIONS
 	.text : AT (_eisr) 
 	{
 		_stext = .;
-		*(.text)
+		*(.text*)
 		. = ALIGN(4);
 		_etext = .;
 	} > RAM
 	
-	.data : AT (__etext)
+	.data : AT (_eisr + SIZEOF(.text))
 	{
 		_sdata = .;
-		*(.data*)
+		*(.*data*)
 		. = ALIGN(4);
 		_edata = .;
 	} > RAM
