@@ -1,5 +1,5 @@
 #定义通用符号
-Q = @
+Q = @ 
 TypeOfMCU = STM32F40_41xxx
 PROJNAME = STM32F407
 
