@@ -9,8 +9,10 @@ LIBDIR = $(TOPDIR)/lib/stm32f4_dsp_stdperiph_lib
 DRIVER_LIB_DIR = $(LIBDIR)/STM32F4xx_DSP_StdPeriph_Lib/Libraries/STM32F4xx_StdPeriph_Driver
 CMSIS_LIB_DIR = $(LIBDIR)/STM32F4xx_DSP_StdPeriph_Lib/Libraries/CMSIS
 ARCHDIR = $(TOPDIR)/arch
+
 USERSRC = $(TOPDIR)/src
 DRIVER_LIB_SRC = $(DRIVER_LIB_DIR)/src
+CMSIS_SRC = $(CMSIS_LIB_DIR)/Device/ST/STM32F4xx/Source/Templates
 
 CROSS_COMPILE = arm-none-eabi-
 CC = $(CROSS_COMPILE)gcc
@@ -30,10 +32,10 @@ CFLAGS += -D$(TypeOfMCU)
 CFLAGS += -DVECT_TAB_FLASH
 CFLAGS += -D"assert_parm(expr)=((void)0)"
 CFLAGS += -DUSE_STDPERIPH_DRIVER
+ARFLAGS = cr
 
-
-LIBS = libstm32.a
-LIBS += libapp.a
+LIBS = $(LIBDIR)/libstm32.a
+LIBS += $(USERSRC)/libapp.a
 OBJS := $(ARCHDIR)/startup.o
 
 export
@@ -42,10 +44,11 @@ export
 all: $(PROJNAME).bin
 $(PROJNAME).bin : $(OBJS) $(LIBS)
 
+$(OBJS) $(LIBS):
+	$(Q) make -C $(dir $@)
 
-$(LIBS):
-	make -C $(DRIVER_LIB_SRC)
-	make -C $(USERSRC)
-$(OBJS):
-	echo OBJS = $(OBJS)
-	make -C $(ARCHDIR)
+.PHONY:clean	
+clean:
+	 -rm $(shell find $(TOPDIR) -name *.o)	
+	 -rm $(shell find $(TIODIR) -name *.a)
+	 -rm $(shell find $(TOPDIR) -name *.d)
