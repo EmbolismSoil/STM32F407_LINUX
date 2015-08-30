@@ -6,6 +6,7 @@
 * 安装vim
 * 安装git
 ***
+
 ##二、 如何工作
 ###2.1 需要作的工作
 * [下载stm32固件库](http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32f4_dsp_stdperiph_lib.zip)
