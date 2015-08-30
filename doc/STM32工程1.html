@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>STM32工程.html</title>
+  <meta name="generator" content="Haroopad 0.13.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>div.oembedall-githubrepos{border:1px solid #DDD;border-radius:4px;list-style-type:none;margin:0 0 10px;padding:8px 10px 0;font:13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;width:452px;background-color:#fff}div.oembedall-githubrepos .oembedall-body{background:-moz-linear-gradient(center top,#FAFAFA,#EFEFEF);background:-webkit-gradient(linear,left top,left bottom,from(#FAFAFA),to(#EFEFEF));border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top:1px solid #EEE;margin-left:-10px;margin-top:8px;padding:5px 10px;width:100%}div.oembedall-githubrepos h3{font-size:14px;margin:0;padding-left:18px;white-space:nowrap}div.oembedall-githubrepos p.oembedall-description{color:#444;font-size:12px;margin:0 0 3px}div.oembedall-githubrepos p.oembedall-updated-at{color:#888;font-size:11px;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats{border:none;float:right;font-size:11px;font-weight:700;padding-left:15px;position:relative;z-index:5;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats li{border:none;color:#666;display:inline-block;list-style-type:none;margin:0!important}div.oembedall-githubrepos ul.oembedall-repo-stats li a{background-color:transparent;border:none;color:#666!important;background-position:5px -2px;background-repeat:no-repeat;border-left:1px solid #DDD;display:inline-block;height:21px;line-height:21px;padding:0 5px 0 23px}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a{border-left:medium none;margin-right:-3px}div.oembedall-githubrepos ul.oembedall-repo-stats li a:hover{background:5px -27px no-repeat #4183C4;color:#FFF!important;text-decoration:none}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a:hover{border-bottom-left-radius:3px;border-top-left-radius:3px}ul.oembedall-repo-stats li:last-child a:hover{border-bottom-right-radius:3px;border-top-right-radius:3px}span.oembedall-closehide{background-color:#aaa;border-radius:2px;cursor:pointer;margin-right:3px}div.oembedall-container{margin-top:5px;text-align:left}.oembedall-ljuser{font-weight:700}.oembedall-ljuser img{vertical-align:bottom;border:0;padding-right:1px}.oembedall-stoqembed{border-bottom:1px dotted #999;float:left;overflow:hidden;width:730px;line-height:1;background:#FFF;color:#000;font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;font-size:80%;text-align:left;margin:0;padding:0}.oembedall-stoqembed a{color:#07C;text-decoration:none;margin:0;padding:0}.oembedall-stoqembed a:hover{text-decoration:underline}.oembedall-stoqembed a:visited{color:#4A6B82}.oembedall-stoqembed h3{font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;font-size:130%;font-weight:700;margin:0;padding:0}.oembedall-stoqembed .oembedall-reputation-score{color:#444;font-size:120%;font-weight:700;margin-right:2px}.oembedall-stoqembed .oembedall-user-info{height:35px;width:185px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-gravatar32{float:left;height:32px;width:32px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-details{float:left;margin-left:5px;overflow:hidden;white-space:nowrap;width:145px}.oembedall-stoqembed .oembedall-question-hyperlink{font-weight:700}.oembedall-stoqembed .oembedall-stats{background:#EEE;margin:0 0 0 7px;padding:4px 7px 6px;width:58px}.oembedall-stoqembed .oembedall-statscontainer{float:left;margin-right:8px;width:86px}.oembedall-stoqembed .oembedall-votes{color:#555;padding:0 0 7px;text-align:center}.oembedall-stoqembed .oembedall-vote-count-post{font-size:240%;color:#808185;display:block;font-weight:700}.oembedall-stoqembed .oembedall-views{color:#999;padding-top:4px;text-align:center}.oembedall-stoqembed .oembedall-status{margin-top:-3px;padding:4px 0;text-align:center;background:#75845C;color:#FFF}.oembedall-stoqembed .oembedall-status strong{color:#FFF;display:block;font-size:140%}.oembedall-stoqembed .oembedall-summary{float:left;width:635px}.oembedall-stoqembed .oembedall-excerpt{line-height:1.2;margin:0;padding:0 0 5px}.oembedall-stoqembed .oembedall-tags{float:left;line-height:18px}.oembedall-stoqembed .oembedall-tags a:hover{text-decoration:none}.oembedall-stoqembed .oembedall-post-tag{background-color:#E0EAF1;border-bottom:1px solid #3E6D8E;border-right:1px solid #7F9FB6;color:#3E6D8E;font-size:90%;line-height:2.4;margin:2px 2px 2px 0;padding:3px 4px;text-decoration:none;white-space:nowrap}.oembedall-stoqembed .oembedall-post-tag:hover{background-color:#3E6D8E;border-bottom:1px solid #37607D;border-right:1px solid #37607D;color:#E0EAF1}.oembedall-stoqembed .oembedall-fr{float:right}.oembedall-stoqembed .oembedall-statsarrow{background-image:url(http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3);background-repeat:no-repeat;overflow:hidden;background-position:0 -435px;float:right;height:13px;margin-top:12px;width:7px}.oembedall-facebook1{border:1px solid #1A3C6C;padding:0;font:13.34px/1.4 verdana;width:500px}.oembedall-facebook2{background-color:#627add}.oembedall-facebook2 a{color:#e8e8e8;text-decoration:none}.oembedall-facebookBody{background-color:#fff;vertical-align:top;padding:5px}.oembedall-facebookBody .contents{display:inline-block;width:100%}.oembedall-facebookBody div img{float:left;margin-right:5px}div.oembedall-lanyard{-webkit-box-shadow:none;-webkit-transition-delay:0s;-webkit-transition-duration:.4000000059604645s;-webkit-transition-property:width;-webkit-transition-timing-function:cubic-bezier(0.42,0,.58,1);background-attachment:scroll;background-clip:border-box;background-color:transparent;background-image:none;background-origin:padding-box;border-width:0;box-shadow:none;color:#112644;display:block;float:left;font-family:'Trebuchet MS',Trebuchet,sans-serif;font-size:16px;height:253px;line-height:19px;margin:0;max-width:none;min-height:0;outline:#112644 0;overflow-x:visible;overflow-y:visible;padding:0;position:relative;text-align:left;vertical-align:baseline;width:804px}div.oembedall-lanyard .tagline{font-size:1.5em}div.oembedall-lanyard .wrapper{overflow:hidden;clear:both}div.oembedall-lanyard .split{float:left;display:inline}div.oembedall-lanyard .prominent-place .flag:active,div.oembedall-lanyard .prominent-place .flag:focus,div.oembedall-lanyard .prominent-place .flag:hover,div.oembedall-lanyard .prominent-place .flag:link,div.oembedall-lanyard .prominent-place .flag:visited{float:left;display:block;width:48px;height:48px;position:relative;top:-5px;margin-right:10px}div.oembedall-lanyard .place-context{font-size:.889em}div.oembedall-lanyard .prominent-place .sub-place{display:block}div.oembedall-lanyard .prominent-place{font-size:1.125em;line-height:1.1em;font-weight:400}div.oembedall-lanyard .main-date{color:#8CB4E0;font-weight:700;line-height:1.1}div.oembedall-lanyard .first{width:48.57%;margin:0 0 0 2.857%}.mermaid .label{color:#333}.node circle,.node polygon,.node rect{fill:#cde498;stroke:#13540c;stroke-width:1px}.edgePath .path{stroke:green;stroke-width:1.5px}.cluster rect{fill:#cdffb2;rx:40;stroke:#6eaa49;stroke-width:1px}.cluster text{fill:#333}.actor{stroke:#13540c;fill:#cde498}text.actor{fill:#000;stroke:none}.actor-line{stroke:grey}.messageLine0{stroke-width:1.5;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#333}.messageLine1{stroke-width:1.5;stroke-dasharray:"2 2";stroke:#333}#arrowhead{fill:#333}#crosshead path{fill:#333!important;stroke:#333!important}.messageText{fill:#333;stroke:none}.labelBox{stroke:#326932;fill:#cde498}.labelText,.loopText{fill:#000;stroke:none}.loopLine{stroke-width:2;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#326932}.note{stroke:#6eaa49;fill:#fff5ad}.noteText{fill:#000;stroke:none;font-family:'trebuchet ms',verdana,arial;font-size:14px}.section{stroke:none;opacity:.2}.section0,.section2{fill:#6eaa49}.section1,.section3{fill:#fff;opacity:.2}.sectionTitle0,.sectionTitle1,.sectionTitle2,.sectionTitle3{fill:#333}.sectionTitle{text-anchor:start;font-size:11px;text-height:14px}.grid .tick{stroke:lightgrey;opacity:.3;shape-rendering:crispEdges}.grid path{stroke-width:0}.today{fill:none;stroke:red;stroke-width:2px}.task{stroke-width:2}.taskText{text-anchor:middle;font-size:11px}.taskTextOutsideRight{fill:#000;text-anchor:start;font-size:11px}.taskTextOutsideLeft{fill:#000;text-anchor:end;font-size:11px}.taskText0,.taskText1,.taskText2,.taskText3{fill:#fff}.task0,.task1,.task2,.task3{fill:#487e3a;stroke:#13540c}.taskTextOutside0,.taskTextOutside1,.taskTextOutside2,.taskTextOutside3{fill:#000}.active0,.active1,.active2,.active3{fill:#cde498;stroke:#13540c}.activeText0,.activeText1,.activeText2,.activeText3{fill:#000!important}.done0,.done1,.done2,.done3{stroke:grey;fill:lightgrey;stroke-width:2}.doneText0,.doneText1,.doneText2,.doneText3{fill:#000!important}.crit0,.crit1,.crit2,.crit3{stroke:#f88;fill:red;stroke-width:2}.activeCrit0,.activeCrit1,.activeCrit2,.activeCrit3{stroke:#f88;fill:#cde498;stroke-width:2}.doneCrit0,.doneCrit1,.doneCrit2,.doneCrit3{stroke:#f88;fill:lightgrey;stroke-width:2;cursor:pointer;shape-rendering:crispEdges}.activeCritText0,.activeCritText1,.activeCritText2,.activeCritText3,.doneCritText0,.doneCritText1,.doneCritText2,.doneCritText3{fill:#000!important}.titleText{text-anchor:middle;font-size:18px;fill:#000}text{font-family:'trebuchet ms',verdana,arial;font-size:14px}html{height:100%}body{margin:0!important;padding:5px 20px 26px!important;background-color:#fff;font-family:"Lucida Grande","Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Lucida Sans Unicode",Helvetica,Arial,sans-serif;font-size:.9em;overflow-x:hidden;overflow-y:auto}br,h1,h2,h3,h4,h5,h6{clear:both}hr.page{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x;border:0;height:3px;padding:0}hr.underscore{border-top-style:dashed!important}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}kbd{border:1px solid #aaa;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:1px 2px 2px #ddd;-webkit-box-shadow:1px 2px 2px #ddd;box-shadow:1px 2px 2px #ddd;background-color:#f9f9f9;background-image:-moz-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-o-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-webkit-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:linear-gradient(top,#eee,#f9f9f9,#eee);padding:1px 3px;font-family:inherit;font-size:.85em}.oembeded .oembed_photo{display:inline-block}img[data-echo]{margin:25px 0;width:100px;height:100px;background:url(../img/ajax.gif) center center no-repeat #fff}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}p.toc{margin:0!important}p.toc ul{padding-left:10px}p.toc>ul{padding:10px;margin:0 10px;display:inline-block;border:1px solid #ededed;border-radius:5px}p.toc li,p.toc ul{list-style-type:none}p.toc li{width:100%;padding:0;overflow:hidden}p.toc li a::after{content:"."}p.toc li a:before{content:"• "}p.toc h5{text-transform:uppercase}p.toc .title{float:left;padding-right:3px}p.toc .number{margin:0;float:right;padding-left:3px;background:#fff;display:none}input.task-list-item{margin-left:-1.62em}.markdown{font-family:"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1+p,.markdown h1:first-child,.markdown h2+p,.markdown h2:first-child,.markdown h3+p,.markdown h3:first-child,.markdown h4+p,.markdown h4:first-child,.markdown h5+p,.markdown h5:first-child,.markdown h6+p,.markdown h6:first-child{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-wrap:break-word}.markdown pre{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;overflow:auto;padding:.5em}.markdown pre code{border:0;display:block}.markdown pre>code{font-family:Consolas,Inconsolata,Courier,monospace;font-weight:700;white-space:pre;margin:0}.markdown code{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown mark{color:#000;background-color:#fcf8e3}.markdown table{padding:0;border-collapse:collapse;border-spacing:0;margin-bottom:16px}.markdown table tr td,.markdown table tr th{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}.github{padding:20px;font-family:"Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Segoe UI",AppleSDGothicNeo-Medium,'Malgun Gothic',Arial,freesans,sans-serif;font-size:15px;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}.github a{color:#3269a0}.github a:hover{color:#4183c4}.github h2{border-bottom:1px solid #e6e6e6;line-height:1.6}.github h6{color:#777}.github hr{border:1px solid #e6e6e6}.github pre>code{font-size:.9em;font-family:Consolas,Inconsolata,Courier,monospace}.github blockquote>code,.github h1>code,.github h2>code,.github h3>code,.github h4>code,.github h5>code,.github h6>code,.github li>code,.github p>code,.github td>code{background-color:rgba(0,0,0,.07);font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;font-size:85%;padding:.2em .5em;border:0}.github blockquote{border-left:4px solid #e6e6e6;padding:0 15px;font-style:italic}.github table{background-color:#fafafa}.github table tr td,.github table tr th{border:1px solid #e6e6e6}.github table tr:nth-child(2n){background-color:#f2f2f2}.hljs{display:block;overflow-x:auto;padding:.5em;background:#fff;color:#000;-webkit-text-size-adjust:none}.hljs-comment,.hljs-javadoc{color:#006a00}.hljs-keyword,.hljs-literal,.nginx .hljs-title{color:#aa0d91}.hljs-list .hljs-title,.hljs-request,.hljs-status,.hljs-tag .hljs-title,.hljs-winutils,.http .hljs-title,.method,.setting .hljs-value,.tex .hljs-command{color:#008}.hljs-envvar,.tex .hljs-special{color:#660}.hljs-string{color:#c41a16}.apache .hljs-cbracket,.hljs-attr_selector,.hljs-cdata,.hljs-date,.hljs-filter .hljs-argument,.hljs-regexp,.hljs-tag .hljs-value{color:#080}.coffeescript .hljs-attribute,.css .hljs-function,.hljs-decorator,.hljs-function .hljs-title,.hljs-hexcolor,.hljs-number,.hljs-pi,.hljs-prompt,.hljs-rules .hljs-value,.hljs-shebang,.hljs-sub .hljs-identifier,.hljs-symbol,.hljs-symbol .hljs-string,.hljs-tag,.hljs-tag .hljs-keyword,.ini .hljs-title{color:#1c00cf}.clojure .hljs-attribute,.hljs-built_in,.hljs-class .hljs-id,.hljs-class .hljs-title,.hljs-dartdoc,.hljs-doctype,.hljs-javadoctag,.hljs-params,.hljs-phpdoc,.hljs-tag .hljs-attribute,.hljs-type,.hljs-typename,.hljs-yardoctag,.setting,.smalltalk .hljs-class{color:#5c2699}.hljs-variable{color:#3f6e74}.css .hljs-tag,.hljs-pseudo,.hljs-rules .hljs-property,.hljs-subst{color:#000}.css .hljs-class,.css .hljs-id{color:#9b703f}.hljs-value .hljs-important{color:#f70;font-weight:700}.hljs-rules .hljs-keyword{color:#c5af75}.apache .hljs-sqbracket,.hljs-annotation,.nginx .hljs-built_in{color:#9b859d}.hljs-pragma,.hljs-preprocessor,.hljs-preprocessor *{color:#643820}.tex .hljs-formula{background-color:#eee;font-style:italic}.diff .hljs-header,.hljs-chunk{color:gray;font-weight:700}.diff .hljs-change{background-color:#bccff9}.hljs-addition{background-color:#baeeba}.hljs-deletion{background-color:#ffc8bd}.hljs-comment .hljs-yardoctag{font-weight:700}.method .hljs-id{color:#000}.MathJax_Hover_Frame{border-radius:.25em;-webkit-border-radius:.25em;-moz-border-radius:.25em;-khtml-border-radius:.25em;box-shadow:0 0 15px #83A;-webkit-box-shadow:0 0 15px #83A;-moz-box-shadow:0 0 15px #83A;-khtml-box-shadow:0 0 15px #83A;border:1px solid #A6D!important;display:inline-block;position:absolute}.MathJax_Hover_Arrow{position:absolute;width:15px;height:11px;cursor:pointer}#MathJax_About{position:fixed;left:50%;width:auto;text-align:center;border:3px outset;padding:1em 2em;background-color:#DDD;color:#000;cursor:default;font-family:message-box;font-size:120%;font-style:normal;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:15px;-webkit-border-radius:15px;-moz-border-radius:15px;-khtml-border-radius:15px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_Menu{position:absolute;background-color:#fff;color:#000;width:auto;padding:5px 0;border:1px solid #CCC;margin:0;cursor:default;font:menu;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-khtml-border-radius:5px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_MenuItem{padding:1px 2em;background:0 0}.MathJax_MenuArrow{position:absolute;right:.5em;color:#666}.MathJax_MenuActive .MathJax_MenuArrow{color:#fff}.MathJax_MenuArrow.RTL{left:.5em;right:auto}.MathJax_MenuCheck{position:absolute;left:.7em}.MathJax_MenuCheck.RTL{right:.7em;left:auto}.MathJax_MenuRadioCheck{position:absolute;left:.7em}.MathJax_MenuRadioCheck.RTL{right:.7em;left:auto}.MathJax_MenuLabel{padding:1px 2em 3px 1.33em;font-style:italic}.MathJax_MenuRule{border-top:1px solid #DDD;margin:4px 3px}.MathJax_MenuDisabled{color:GrayText}.MathJax_MenuActive{background-color:#606872;color:#fff}.MathJax_Menu_Close{position:absolute;width:31px;height:31px;top:-15px;left:-15px}#MathJax_Zoom{position:absolute;background-color:#F0F0F0;overflow:auto;display:block;z-index:301;padding:.5em;border:1px solid #000;margin:0;font-weight:400;font-style:normal;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;box-shadow:5px 5px 15px #AAA;-webkit-box-shadow:5px 5px 15px #AAA;-moz-box-shadow:5px 5px 15px #AAA;-khtml-box-shadow:5px 5px 15px #AAA;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}#MathJax_ZoomOverlay{position:absolute;left:0;top:0;z-index:300;display:inline-block;width:100%;height:100%;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}#MathJax_ZoomFrame{position:relative;display:inline-block;height:0;width:0}#MathJax_ZoomEventTrap{position:absolute;left:0;top:0;z-index:302;display:inline-block;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}.MathJax_Preview{color:#888}#MathJax_Message{position:fixed;left:1px;bottom:2px;background-color:#E6E6E6;border:1px solid #959595;margin:0;padding:2px 8px;z-index:102;color:#000;font-size:80%;width:auto;white-space:nowrap}#MathJax_MSIE_Frame{position:absolute;top:0;left:0;width:0;z-index:101;border:0;margin:0;padding:0}.MathJax_Error{color:#C00;font-style:italic}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+</head>
+<body class="markdown github">
+<h1 id="在linux下开始一个stm32工程"><a name="在linux下开始一个stm32工程" href="#在linux下开始一个stm32工程"></a>在LINUX下开始一个STM32工程</h1><p class="toc" style="undefined"></p><ul>
+<li><ul>
+<li><span class="title">
+<a href="#一、安装工具" title="一、安装工具">一、安装工具</a>
+</span>
+<!--span class="number">
+0
+</span-->
+</li>
+<li><span class="title">
+<a href="#二、-如何工作" title="二、 如何工作">二、 如何工作</a>
+</span>
+<!--span class="number">
+1
+</span-->
+<ul>
+<li><span class="title">
+<a href="#2.1-需要作的工作" title="2.1 需要作的工作">2.1 需要作的工作</a>
+</span>
+<!--span class="number">
+2
+</span-->
+</li>
+<li><span class="title">
+<a href="#2.2-工作分析" title="2.2 工作分析">2.2 工作分析</a>
+</span>
+<!--span class="number">
+3
+</span-->
+<ul>
+<li><span class="title">
+<a href="#2.2.1-makefile分析" title="2.2.1 makefile分析">2.2.1 makefile分析</a>
+</span>
+<!--span class="number">
+4
+</span-->
+</li>
+<li><span class="title">
+<a href="#2.2.2-链接器脚本分析" title="2.2.2 链接器脚本分析">2.2.2 链接器脚本分析</a>
+</span>
+<!--span class="number">
+5
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#2.3-分析结果" title="2.3 分析结果">2.3 分析结果</a>
+</span>
+<!--span class="number">
+6
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#三、开始工作" title="三、开始工作">三、开始工作</a>
+</span>
+<!--span class="number">
+7
+</span-->
+<ul>
+<li><span class="title">
+<a href="#3.1-创建文工程目录" title="3.1 创建文工程目录">3.1 创建文工程目录</a>
+</span>
+<!--span class="number">
+8
+</span-->
+</li>
+<li><span class="title">
+<a href="#3.2-编写连接器脚本" title="3.2 编写连接器脚本">3.2 编写连接器脚本</a>
+</span>
+<!--span class="number">
+9
+</span-->
+</li>
+<li><span class="title">
+<a href="#3.3-编写makefile" title="3.3 编写Makefile">3.3 编写Makefile</a>
+</span>
+<!--span class="number">
+10
+</span-->
+<ul>
+<li><span class="title">
+<a href="#3.3.1-总控makfile" title="3.3.1 总控Makfile">3.3.1 总控Makfile</a>
+</span>
+<!--span class="number">
+11
+</span-->
+</li>
+<li><span class="title">
+<a href="#3.3.2-src子目录makefile" title="3.3.2 src子目录Makefile">3.3.2 src子目录Makefile</a>
+</span>
+<!--span class="number">
+12
+</span-->
+</li>
+<li><span class="title">
+<a href="#3.3.3-arch子目录makefile" title="3.3.3 arch子目录Makefile">3.3.3 arch子目录Makefile</a>
+</span>
+<!--span class="number">
+13
+</span-->
+</li>
+<li><span class="title">
+<a href="#3.3.4-lib子目录makefile" title="3.3.4 lib子目录Makefile">3.3.4 lib子目录Makefile</a>
+</span>
+<!--span class="number">
+14
+</span-->
+</li>
+<li><span class="title">
+<a href="#3.3.5-makefile总结" title="3.3.5 Makefile总结">3.3.5 Makefile总结</a>
+</span>
+<!--span class="number">
+15
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+</ul>
+<p></p><h2 id="一、安装工具"><a name="一、安装工具" href="#一、安装工具"></a>一、安装工具</h2><ul>
+<li>安装交叉编译工具链arm-none-eabi</li><li>安装make</li><li>安装vim</li><li>安装git</li></ul><hr class="page"><h2 id="二、-如何工作"><a name="二、-如何工作" href="#二、-如何工作"></a>二、 如何工作</h2><h3 id="2.1-需要作的工作"><a name="2.1-需要作的工作" href="#2.1-需要作的工作"></a>2.1 需要作的工作</h3><ul>
+<li><a href="http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32f4_dsp_stdperiph_lib.zip">下载stm32固件库</a></li><li>编写连接器脚本</li><li>编写makefile</li></ul><h3 id="2.2-工作分析"><a name="2.2-工作分析" href="#2.2-工作分析"></a>2.2 工作分析</h3><h4 id="2.2.1-makefile分析"><a name="2.2.1-makefile分析" href="#2.2.1-makefile分析"></a>2.2.1 makefile分析</h4><p>当我们开发STM32时，会有两部分源码，一部分是由意法半导体提供的固件库，一部分是我们自己编写的用户层代码。 在开发过程中，除非我们进行版本更新否则固件库是不会改变的。而用户代码是会在开发过程当中增删减的。这样，我们可以首先把不变的固件库编译成静态库，之后的每次编译过程中只需要编译用户代码然后再把已经编译好的固件静态库链接进来就可以了，这样做可以大大节省编译时间，因为固件库结构本身是比较庞大和复杂的。</p><h4 id="2.2.2-链接器脚本分析"><a name="2.2.2-链接器脚本分析" href="#2.2.2-链接器脚本分析"></a>2.2.2 链接器脚本分析</h4><p>在总控makefile编译完用户代码之后，就会将静态固件库链接进来，形成最终的镜像文件。这个链接过程由是链接器脚本控制完成的。<br>连接器脚本主要是用于安排不同代码段在内存中的位置的，程序中的段属性可以大致分为只读的代码段(.textd段)和可读可写的数据段(.data段和.bss段)。而在嵌入式微控制器中，内存也主要分为两种：只读的FLASH和可读可写的RAM。我们可以把代码段放到FLASH中，而数据段放到RAM中。当然，如果RAM空间足够大的话，我们可以把整个镜像都放到RAM里面去。这里需要解释一下，一般来说我们烧录程序是烧录到FLASH内的，而不是RAM内，因为RAM是掉电易失的，而FLASH为非易失储存器。如果代码烧录到RAM内，在关机之后代码就没了。所以我们需要把整个镜像烧录到FLASH内，而后在BOOT阶段再拷贝那些原本被链接器安排到RAM的代码段拷贝到RAM里面去。总而言之，链接器脚本主要完成的工作是：安排好不同.o文件不同段所在的位置，并且解决符号引用问题。<br><em>(注：关于链接的详细介绍，可以看我的<a href="http://www.hainter.com/clinker">另外一篇博文</a>)</em></p><h3 id="2.3-分析结果"><a name="2.3-分析结果" href="#2.3-分析结果"></a>2.3 分析结果</h3><p>我们的工程应该需要编写：</p><ul>
+<li>负责固件库编译的makefile</li><li>负责用户代码编译和链接生成最终镜像的makefile</li><li>负责链接过程中安排各个程序段的链接器脚本</li></ul><h2 id="三、开始工作"><a name="三、开始工作" href="#三、开始工作"></a>三、开始工作</h2><h3 id="3.1-创建文工程目录"><a name="3.1-创建文工程目录" href="#3.1-创建文工程目录"></a>3.1 创建文工程目录</h3><p>工程目录结构如图所示</p><pre>|---project
+     |---arch
+     |---debug
+     |---doc
+     |---include
+     |---ldscripts
+     |---lib
+     |---OS
+     |---src
+</pre><p>下载固件库到lib文件夹中去并且解压备用</p><pre>  cd lib
+  wget www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32f4_dsp_stdperiph_lib.zip
+  unzip stm32f4_dsp_stdperiph_lib.zip -d stm32f4_dsp_stdperiph_lib</pre><h3 id="3.2-编写连接器脚本"><a name="3.2-编写连接器脚本" href="#3.2-编写连接器脚本"></a>3.2 编写连接器脚本</h3><p>首先创建一个.lds文件并且编辑之</p><pre>  cd ldscripts/ &amp;&amp; touch STM32F407.lds &amp;&amp; vim STM32F407.lds</pre><p>定义机器架构为ARM，入口符号为Reset_Handler</p><pre>  1 OUTPUT_ARCH(arm)
+  2 ENTRY(Reset_Handler)
+</pre><p>定义RAM区和FLASH区的起始地址与长度</p><pre>  3 MEMORY
+  4 {
+  5         RAM : ORIGIN = 0x20000000, LENGTH = 112K
+  6         FLASH : ORIGIN = 0x08000000, LENGTH = 1M
+  7 }
+  8 
+</pre><p>定义各个段的位置。<br>为了加快程序运行速度，将中断向量表所在的isr段放到flash内，其他所有段都放到RAM内。并且安排整个镜像的加载地址是连续摆放的，这样可以避免镜像中出现空洞</p><pre>   9 SECTIONS
+  10 {
+  11         . = ALIGN(4);
+  12          
+  13         .isr_vectors :
+  14         {
+  15                 KEEP(\*(.isr_vectors))
+  16                 . = ALIGN(4);
+  17                 _eisr = .;
+  18         } &gt; FLASH
+  19                 
+  20         .text : AT (_eisr) 
+  21         { 
+  22                 _stext = .;
+  23                \*(.text)
+  24                 . = ALIGN(4);
+  25                 _etext = .;
+  26         } &gt; RAM
+  27                 
+  28         .data : AT (__eisr+SIZEOF(.text))
+  29         { 
+  30                 _sdata = .;
+  31                 \*(.data\*)
+  32                 . = ALIGN(4);
+  33                 _edata = .;
+  34         } &gt; RAM 
+  35  
+  36         .bss : 
+  37         {
+  38                 . = ALIGN(4);
+  39                 _sbss = .;
+  40                 \*(.bss)
+  41                 . = ALIGN(4);
+  42                 _ebss = .;
+  43         } &gt; RAM
+  44  
+  45         .stack :
+  46         {
+  47                 . = ALIGN(4);
+  48                 _sstack = .;
+  49                 \*(.stack);
+  50                 . = ALIGN(4);
+  51                 _estack = .;
+  52         } &gt; RAM
+  53 }
+</pre><h3 id="3.3-编写makefile"><a name="3.3-编写makefile" href="#3.3-编写makefile"></a>3.3 编写Makefile</h3><p>整个工程目录下，只有src、lib、arch三个子目录下有于源文件需要编译。为了结构层次清晰明了，这里采用总控Makefile配合各个源码子目录下Makefile的方式来完成整个编译过程。所以整个工程内一共有四份Makefile：</p><ul>
+<li>工程根目录下的总控Makefile</li><li>src、lib、arch 子目录下的Makefile</li></ul><p>在开始编写之前，先在工程目录和src、lib、arch目录下分别都创建一个名为Makefile的文件,再在工程目录下创建一个rules.mk文件，用于提炼四个Makefile文件中的相同代码。</p><pre>  cd project &amp;&amp; touch Makefile src/Makefile lib/Makefile arch/Makefile</pre><h4 id="3.3.1-总控makfile"><a name="3.3.1-总控makfile" href="#3.3.1-总控makfile"></a>3.3.1 总控Makfile</h4><p>总控Makefile的主要职责是定义所有Makefile都要使用到的全局变量，并且控制各个子目录下的Makefile行为。</p><pre>  1 #定义通用符号
+  2 Q = @
+  3 TypeOfMCU = STM32F40_41xxx
+  4 PROJNAME = STM32F407
+  5 
+</pre><pre>  6 #定义源码目录
+  7 TOPDIR = $(shell pwd)
+  8 LIBDIR = $(TOPDIR)/lib/stm32f4_dsp_stdperiph_lib
+  9 DRIVER_LIB_DIR = $(LIBDIR)/STM32F4xx_DSP_StdPeriph_Lib/Libraries/STM32F4xx_StdPeriph_Driver
+  10 CMSIS_LIB_DIR = $(LIBDIR)/STM32F4xx_DSP_StdPeriph_Lib/Libraries/CMSIS
+  11 ARCHDIR = $(TOPDIR)/arch
+  12
+  13 USERSRC = $(TOPDIR)/src
+  14 DRIVER_LIB_SRC = $(DRIVER_LIB_DIR)/src
+  15 CMSIS_SRC = $(CMSIS_LIB_DIR)/Device/ST/STM32F4xx/Source/Templates
+</pre><p>为了方便起见，这里定义了各个源码目录，以免每次都要重写各个路径。</p><pre>  16 #定义交叉编译器
+  17 CROSS_COMPILE = arm-none-eabi-
+  18 CC = $(CROSS_COMPILE)gcc
+  19 LD = $(CROSS_COMPILE)ld
+  20 AR = $(CROSS_COMPILE)ar
+  21 OBJCOPY = $(CROSS_COMPILE)objcopy
+</pre><p>这里需要定义交叉编译器，一来方便读写，二来可以方便以后拓展，如果换到其它的编译器，只需要在这里修改即可。</p><pre>  23 INCLUDE = -I $(TOPDIR)/inc
+  24 INCLUDE += -I $(CMSIS_LIB_DIR)/Include
+  25 INCLUDE += -I $(DRIVER_LIB_DIR)/inc
+  26 INCLUDE += -I $(CMSIS_LIB_DIR)/Device/ST/STM32F4xx/Include
+  27 
+  28 OBJCFLAGS = --gap-fill=0xff
+  29 CFLAGS = $(INCLUDE) -g -O2 -Wall -mcpu=cortex-m4 -mthumb
+  30 
+  31 #编译宏选项
+  32 CFLAGS += -D$(TypeOfMCU)
+  33 CFLAGS += -DVECT_TAB_FLASH
+  34 CFLAGS += -D"assert_parm(expr)=((void)0)"
+  35 CFLAGS += -DUSE_STDPERIPH_DRIVER
+  36 ARFLAGS = cr
+  37 LDFLAGS = -Bstatic -T $(TOPDIR)/ldscripts/$(PROJNAME).lds -N
+  38
+</pre><p>以上定义了编译选项、链接选项，格式转化选项。因为在这个工程里大量使用了GNU make的隐含依赖链，所以编译选项必须定义为CFLAGS。</p><pre>  39 LIBS = $(LIBDIR)/libstm32.a
+  40 LIBS += $(USERSRC)/libapp.a
+  41 OBJS := $(ARCHDIR)/startup.o
+  42
+  43</pre><p>这三句定义了lib、src、arch目录下的Makefile生成的目标。总控Makefile通过控制执行各个子目录下的Makefile从而得到这三个目标，最后将这三个目标链接形成最终的镜像。</p><pre>  44 export
+  45 
+  46 .PHONY:all $(PROJNAME).bin $(PROJNAME).elf $(LIBS) $(OBJS)</pre><p>第44行的export将所有定义的变量导出，以便各个子目录的Makefile使用。第46行则定义了将各个目标声明为伪目标，从而能地在每次执行make时强制检测检测各个子目录下的依赖关系变化。</p><pre>  47 all: $(PROJNAME).bin
+  48 
+  49 $(PROJNAME).bin : $(PROJNAME).elf
+  50         $(OBJCOPY) $(OBJCFLAGS) @@bodylt; $@
+  51 
+  52 $(PROJNAME).elf : $(OBJS) $(LIBS)
+  53         $(LD) $(LDFLAGS) $(OBJS) \
+  54                 --start-group $(LIBS) --end-group -o $@
+  55 
+  56 $(OBJS) $(LIBS):
+  57         $(Q) make -C $(dir $@)
+  58 
+</pre><p>总控Makefile最终生成的目标是$(PROJNAME).bin这个二进制镜像文件，该文件由$(PROJNAME).elf通过格式转化得来。而$(PROJNAME).elf则由$(OBJS) $(LIBS)通过链接得到。$(OBJS)和$(LIBS)都由相应子目录下的Makefile生成。</p><h4 id="3.3.2-src子目录makefile"><a name="3.3.2-src子目录makefile" href="#3.3.2-src子目录makefile"></a>3.3.2 src子目录Makefile</h4><p>src/Makefile的唯一任务就是将src下的所有.c文件编译成为一个静态库libapp.a。具体代码如下：</p><pre>  1 SRC = $(wildcard $(USERSRC)/*.c)
+  2 
+  3 OBJ = $(SRC:%.c=%.o)
+  4 DEP = $(SRC:%.c=%.d)
+  5 
+  6 .PHONY:libapp.a
+  7 libapp.a : $(DEP) $(OBJ)
+  8         $(AR) $(ARFLAGS) $(USERSRC)/$@ $(OBJ)
+  9 
+ 10 sinclude $(TOPDIR)/rules.mk
+ 11 sinclude $(DEP)
+</pre><p>该Makefile比较简单，唯一需要说明的是第10行和第11行。第10行包含了工程目录下的rules.mk文件，第11行则包含了所有与每个.c文件对应的.d文件。rules.mk用于生成.d文件，rules.mk会为每个.c文件生成其对应的.d文件，.d文件记录了利用.c文件编译成.o文件的依赖关系。.o文件由GNU Make的隐含规则根据.d文件中的依赖关系编译生成,而最终生成libapp.a时只需要将所有.o文件打包即可。rules.mk代码如下：</p><pre>  1 %.d : %.c
+  2         $(Q) set -e;rm -f $@;\
+  3         $(CC) -MM $(CFLAGS) @@bodylt; &gt; $@.$;\
+  4                 sed 's/\($(notdir $*)\)\.o[ :]*/\1.o $(notdir $@) : /g' &lt; $@.$     &gt; $@;\
+  5                 rm -f $@.$
+</pre><p>第3行利用gcc -MM自动推导了每个.c文件的依赖关系，并且写入.d.（随机数）这个临时文件中，依赖关系的格式为 xxx.o : xxx.c xxx.h yyy.h zzz.h…。第4行则在前面生成的依赖关系的目标中将对应的.d添加进去。并且将修改后的依赖关系写入.d文件中，最终格式为 xxx.c xxx.d : xxx.c xxx.h yyy.h zzz.h,这样做是为了能让.d文件在检测到.c或者.h文件变化时能够自动更新。这样，.d内记录的依赖关系就可以用来生成.o文件了。</p><h4 id="3.3.3-arch子目录makefile"><a name="3.3.3-arch子目录makefile" href="#3.3.3-arch子目录makefile"></a>3.3.3 arch子目录Makefile</h4><p>arch子目录下的Makefile与src/Makefile原理上一致，这里不做分析地列出代码如下：</p><pre>  1 obj = $(notdir $(OBJS))
+  2 dep = $(obj:%.o=%.d)
+  3 
+  4 .PHONY:all
+  5 all: $(dep) $(obj)
+  6 
+  7 sinclude $(TOPDIR)/rules.mk
+  8 sinclude $(dep)</pre><h4 id="3.3.4-lib子目录makefile"><a name="3.3.4-lib子目录makefile" href="#3.3.4-lib子目录makefile"></a>3.3.4 lib子目录Makefile</h4><p>arch子目录下的Makefile与src/Makefile原理上一致，这里不做分析地列出代码如下：</p><pre>  1 LIBSRC = $(wildcard $(DRIVER_LIB_SRC)/*.c)
+  2 LIBSRC += $(wildcard $(CMSIS_SRC)/*.c)
+  3 
+  4 LIBOBJ = $(LIBSRC:%.c=%.o)
+  5 LIBDEP = $(LIBSRC:%.c=%.d)
+  6 
+  7 libstm32.a: $(LIBDEP) $(LIBOBJ)
+  8         $(Q) $(AR) $(ARFLAGS) $(LIBDIR)/$@ $(LIBOBJ)
+  9 
+ 10 sinclude $(TOPDIR)/rules.mk
+ 11 sinclude $(LIBDEP)</pre><h4 id="3.3.5-makefile总结"><a name="3.3.5-makefile总结" href="#3.3.5-makefile总结"></a>3.3.5 Makefile总结</h4><p>该工程下的GNU make文件一共有五分，包括四份Makefile和一份rules.mk，其中工程目录下的Makefile作为总控Makefile，其它Makefile作为子Makefile被总控Makefile控制执行。每个Makefile的责任都是生成一个子模块，而总控Makefile的责任是将所有子模块链接成为最终的镜像文件。当用户在工程目录下键入一个make并且摁下回车键时，总控Makefile依次控制进入各个子目录并且在子目录下执行make指令，每个子目录下执行make指令时，会调用rules.mk生成.d文件，再根据.d文件描述的依赖关系去将该目录下的所有.c文件编译成.o文件，最后利用.o文件生成该子Makefile负责的模块。当所有子目录下的make指令都成功执行后，得到startup.o libapp.a libstm32.a三个模块，总控Makefile这时通过LD将三个模块链接，并且进行格式转化，就得到了最终的.bin镜像。</p>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>
